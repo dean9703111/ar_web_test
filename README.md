@@ -24,3 +24,7 @@ https://convertio.co/png-svg/
 3. 動畫的開始與結束由setAttribute/removeAttribute處理
 4. AFRAME.registerComponent需要研究
 5. 確認動畫骨架概念(因為目前的動畫結束後會停留在一個詭異的動作)
+
+### marker注意事項
+1. 每個marker都要有一定的差距，不然會很慘(過去以寶寶貼圖實驗，只在旁變加上數字會有誤認的問題存在)
+2. 周圍建議要全黑(可以包裝成拼圖的盒子)，如非全黑是很難判定成功的
