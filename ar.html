@@ -35,33 +35,17 @@
             entityEl2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
             scene_test.appendChild(entityEl2);
           }, { once: true });
-
-          // var entityEl2 = document.createElement('a-entity');
-          // entityEl2.setAttribute('id', 'toy2');
-          // entityEl2.setAttribute('position', "-3 0 -1.5");
-          // entityEl2.setAttribute('rotation', "-90 90 -90");
-          // entityEl2.setAttribute('gltf-model', "url(assets/kirby_ginga/scene.gltf)");
-          // entityEl2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-          // scene_test.appendChild(entityEl2);
-
-          // var toy = document.getElementById("toy");
-          // var toy2 = document.getElementById("toy2");
-          // console.log('kirby_ginga start')
-          // // test.removeAttribute('animation-mixer')//讓影片能重來
-          // toy.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-          // toy.emit('ar-ready');
-          // toy.addEventListener('animation-finished', function () {
-          //   toy.removeAttribute('animation-mixer');
-          //   toy2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-          //   toy2.addEventListener('animation-finished', function () {
-          //     toy2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-          //   }, { once: true });
-          // }, { once: true });
         }
       });
       marker.addEventListener('markerLost', function () {
         var markerId = marker.id;
+        var e = document.getElementById(markerId);
         console.log('markerLost', markerId);
+        var child = e.lastElementChild;
+        while (child) {
+          e.removeChild(child);
+          child = e.lastElementChild;
+        }
         // TODO: Add your own code here to react to the marker being lost.
       });
 
