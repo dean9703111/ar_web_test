@@ -17,15 +17,15 @@
         // TODO: Add your own code here to react to the marker being found.
         if (markerId === 'kirby_ginga') {
           var markerEL = document.getElementById("kirby_ginga");
-          var sceneEl = document.createElement('a-scene');
-          markerEL.appendChild(sceneEl);
+          var sceneEL = document.createElement("a-scene");
           var entityEl = document.createElement('a-entity');
           entityEl.setAttribute('id', 'toy');
           entityEl.setAttribute('position', "0 0 -1.5");
           entityEl.setAttribute('rotation', "-90 90 -90");
           entityEl.setAttribute('gltf-model', "url(assets/kirby_ginga/scene.gltf)");
           entityEl.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-          scene_test.appendChild(entityEl);
+          sceneEL.appendChild(entityEl);
+          markerEL.appendChild(sceneEL);
           entityEl.addEventListener('animation-finished', function () {
             // entityEl.removeAttribute('animation-mixer');
             entityEl.parentNode.removeChild(entityEl);
@@ -35,7 +35,7 @@
             entityEl2.setAttribute('rotation', "-90 90 -90");
             entityEl2.setAttribute('gltf-model', "url(assets/kirby_ginga/scene.gltf)");
             entityEl2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-            scene_test.appendChild(entityEl2);
+            sceneEL.appendChild(entityEl2);
           }, { once: true });
         }
       });
