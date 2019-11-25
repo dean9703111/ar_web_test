@@ -15,15 +15,22 @@
         var markerId = marker.id;
         console.log('markerFound', markerId);
         // TODO: Add your own code here to react to the marker being found.
-        if (markerId === 'kirby_ginga') {
-          var scene_test = document.getElementById("kirby_ginga");
+        if (markerId !== 'kirby_ginga') {
+          var markerEL = document.getElementById(markerId);
+          var entityEl = document.createElement('a-entity');
+          entityEl.setAttribute('id', 'toy');
+          entityEl.setAttribute('position', "0 0 -1");
+          entityEl.setAttribute('scale', "1 0.003 1");
+          entityEl.setAttribute('gltf-model', "url(assets/kirby_ginga/" + markerId + ".gltf)");
+        } else {
+          var markerEL = document.getElementById(markerId);
           var entityEl = document.createElement('a-entity');
           entityEl.setAttribute('id', 'toy');
           entityEl.setAttribute('position', "0 0 -1.5");
           entityEl.setAttribute('rotation', "-90 90 -90");
           entityEl.setAttribute('gltf-model', "url(assets/kirby_ginga/scene.gltf)");
           entityEl.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-          scene_test.appendChild(entityEl);
+          markerEL.appendChild(entityEl);
           entityEl.addEventListener('animation-finished', function () {
             // entityEl.removeAttribute('animation-mixer');
             entityEl.parentNode.removeChild(entityEl);
@@ -33,14 +40,15 @@
             entityEl2.setAttribute('rotation', "-90 90 -90");
             entityEl2.setAttribute('gltf-model', "url(assets/kirby_ginga/scene.gltf)");
             entityEl2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-            scene_test.appendChild(entityEl2);
+            markerEL.appendChild(entityEl2);
           }, { once: true });
         }
       });
       marker.addEventListener('markerLost', function () {
         var markerId = marker.id;
-        var e = document.getElementById(markerId);
         console.log('markerLost', markerId);
+        // 如果離開就移除該節點
+        var e = document.getElementById(markerId);
         var child = e.lastElementChild;
         while (child) {
           e.removeChild(child);
@@ -102,14 +110,10 @@
     <a-marker id='12_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_12.patt' registerevents>
       <a-entity position='0 0 -1' rotation="0 0 0" gltf-model="url(assets/cards/hearts/12_hearts.glb)">
       </a-entity>
-    </a-marker>
-    <a-marker id='13_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_13.patt' registerevents>
-      <a-entity position='0 0 -1' rotation="0 0 0" gltf-model="url(assets/cards/hearts/13_hearts.glb)">
-      </a-entity>
     </a-marker> -->
+    <a-marker id='13_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_13.patt' registerevents>
+    </a-marker>
     <a-marker id='kirby_ginga' type='pattern' url='assets/marker/pattern-people.patt' registerevents>
-      <!-- <a-scene id='scene_test'>
-      </a-scene> -->
     </a-marker>
   </a-scene>
 </body>
