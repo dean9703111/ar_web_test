@@ -14,15 +14,16 @@
       marker.addEventListener('markerFound', function () {
         var markerId = marker.id;
         console.log('markerFound', markerId);
-        // alert('markerFound:' + markerId)
+        alert('markerFound:' + markerId)
         // TODO: Add your own code here to react to the marker being found.
         if (markerId !== 'kirby_ginga') {
           var markerEL = document.getElementById(markerId);
           var entityEl = document.createElement('a-entity');
+          var url = "url(assets/cards/hearts/" + markerId + ".glb)"
           // entityEl.setAttribute('id', 'toy');
           entityEl.setAttribute('position', "0 0 -1");
           entityEl.setAttribute('scale', "1 0.003 1");
-          entityEl.setAttribute('gltf-model', "url(assets/cards/hearts/" + markerId + ".glb)");
+          entityEl.setAttribute('gltf-model', url);
         } else {
           var markerEL = document.getElementById(markerId);
           var entityEl = document.createElement('a-entity');
