@@ -15,6 +15,9 @@ https://www.onlinewebfonts.com/icon/tools
 ### 轉SVG工具(這個比較猛)
 https://convertio.co/png-svg/
 
+### 一個絕對沒問題的marker產生器
+http://bhollis.github.io/aruco-marker/demos/angular.html
+
 ### a-entity 紀錄
 1. scale掌管大小，如果一開始沒看到可能是因為本體太大或是位置偏差可先調整如scale="0.1 0.1 0.1"
 
@@ -24,7 +27,14 @@ https://convertio.co/png-svg/
 3. 動畫的開始與結束由setAttribute/removeAttribute處理
 4. AFRAME.registerComponent需要研究
 5. 確認動畫骨架概念(因為目前的動畫結束後會停留在一個詭異的動作)
+6. 目前對周圍網路速度是有要求的，以一個動畫500kb+標誌20KB來計算，0.52*52+(一些工具)=27M左右．也就是說每次使用都會需要這個網路資源，若換算現在普遍4G的加載速度大約就是2~3秒
 
 ### marker注意事項
 1. 每個marker都要有一定的差距，不然會很慘(過去以寶寶貼圖實驗，只在旁變加上數字會有誤認的問題存在)
 2. 周圍建議要全黑(可以包裝成拼圖的盒子)，如非全黑是很難判定成功的
+
+### 3D模型建議
+1. 建議模型的點盡可能地少（細節減少），沒展示出來的就算平面也沒問題(比如魔術師背後完全不存在顏色都不需要這樣的概念)
+2. 牌只要花色點數就好
+3. 如果可能盡量300KB以下
+
