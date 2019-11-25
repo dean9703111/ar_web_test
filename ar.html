@@ -18,9 +18,12 @@
         if (markerId === 'kirby_ginga') {
           var test = document.getElementById("toy");
           console.log('kirby_ginga start')
-          test.removeAttribute('animation-mixer')//讓影片能重來
+          // test.removeAttribute('animation-mixer')//讓影片能重來
           test.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
           test.emit('ar-ready');
+          test.addEventListener('animation-finished', function () {
+            test.removeAttribute('animation-mixer');
+          }, { once: true });
         }
       });
       marker.addEventListener('markerLost', function () {
@@ -28,6 +31,7 @@
         console.log('markerLost', markerId);
         // TODO: Add your own code here to react to the marker being lost.
       });
+
     }
   });
 </script>
@@ -87,15 +91,10 @@
       </a-entity>
     </a-marker> -->
     <a-marker id='kirby_ginga' type='pattern' url='assets/marker/pattern-people.patt' registerevents>
-      <!-- <a-entity id='toy' position="0 0 -1.5" rotation="-90 90 -90" gltf-model="url(assets/kirby_ginga/scene.gltf)">
+      <a-entity id='toy' position="0 0 -1.5" rotation="-90 90 -90" gltf-model="url(assets/kirby_ginga/scene.gltf)">
+      </a-entity>
+      <!-- <a-entity id='toy2' position="-3 0 -1.5" rotation="-90 90 -90" gltf-model="url(assets/kirby_ginga/scene.gltf)">
       </a-entity> -->
-      <a-scene>
-        <a-assets>
-          <a-mixin id="red" position="0 0 -1.5" rotation="-90 90 -90" gltf-model="url(assets/kirby_ginga/scene.gltf)"></a-mixin>
-          <a-mixin id="blue" position="0 0 -1.5" rotation="-90 90 -90" gltf-model="url(assets/kirby_ginga/scene.gltf)"></a-mixin>
-        </a-assets>
-        <a-entity id='toy' mixin="red blue"></a-entity>
-      </a-scene>
     </a-marker>
   </a-scene>
 </body>
