@@ -26,10 +26,10 @@
           scene_test.appendChild(entityEl);
           entityEl.addEventListener('animation-finished', function () {
             // entityEl.removeAttribute('animation-mixer');
-            // entityEl.parentNode.removeChild(entityEl);
+            entityEl.parentNode.removeChild(entityEl);
             var entityEl2 = document.createElement('a-entity');
             entityEl2.setAttribute('id', 'toy2');
-            entityEl2.setAttribute('position', "-3 0 -1.5");
+            entityEl2.setAttribute('position', "-1 0 -1.5");
             entityEl2.setAttribute('rotation', "-90 90 -90");
             entityEl2.setAttribute('gltf-model', "url(assets/kirby_ginga/scene.gltf)");
             entityEl2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
