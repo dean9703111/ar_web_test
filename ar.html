@@ -16,19 +16,28 @@
         console.log('markerFound', markerId);
         // TODO: Add your own code here to react to the marker being found.
         if (markerId === 'kirby_ginga') {
-          var toy = document.getElementById("toy");
-          var toy2 = document.getElementById("toy2");
-          console.log('kirby_ginga start')
-          // test.removeAttribute('animation-mixer')//讓影片能重來
-          toy.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-          toy.emit('ar-ready');
-          toy.addEventListener('animation-finished', function () {
-            toy.removeAttribute('animation-mixer');
-            toy2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-            toy2.addEventListener('animation-finished', function () {
-              toy2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-            }, { once: true });
-          }, { once: true });
+          var scene_test = document.getElementById("scene_test");
+          var entityEl = document.createElement('a-entity');
+          entityEl.setAttribute('id', 'toy');
+          entityEl.setAttribute('position', "0 0 -1.5");
+          entityEl.setAttribute('rotation', "-90 90 -90");
+          entityEl.setAttribute('gltf-model', "url(assets/kirby_ginga/scene.gltf)");
+          entityEl.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
+          scene_test.appendChild(entityEl);
+
+          // var toy = document.getElementById("toy");
+          // var toy2 = document.getElementById("toy2");
+          // console.log('kirby_ginga start')
+          // // test.removeAttribute('animation-mixer')//讓影片能重來
+          // toy.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
+          // toy.emit('ar-ready');
+          // toy.addEventListener('animation-finished', function () {
+          //   toy.removeAttribute('animation-mixer');
+          //   toy2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
+          //   toy2.addEventListener('animation-finished', function () {
+          //     toy2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
+          //   }, { once: true });
+          // }, { once: true });
         }
       });
       marker.addEventListener('markerLost', function () {
@@ -96,11 +105,11 @@
       </a-entity>
     </a-marker> -->
     <a-marker id='kirby_ginga' type='pattern' url='assets/marker/pattern-people.patt' registerevents>
-      <a-scene>
-        <a-entity id='toy' position="0 0 -1.5" rotation="-90 90 -90" gltf-model="url(assets/kirby_ginga/scene.gltf)">
+      <a-scene id='scene_test'>
+        <!-- <a-entity id='toy' position="0 0 -1.5" rotation="-90 90 -90" gltf-model="url(assets/kirby_ginga/scene.gltf)">
         </a-entity>
         <a-entity id='toy2' position="-4d 0 -1.5" rotation="-90 90 -90" gltf-model="url(assets/kirby_ginga/scene.gltf)">
-        </a-entity>
+        </a-entity> -->
       </a-scene>
     </a-marker>
   </a-scene>
