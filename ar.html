@@ -96,10 +96,12 @@
       </a-entity>
     </a-marker> -->
     <a-marker id='kirby_ginga' type='pattern' url='assets/marker/pattern-people.patt' registerevents>
-      <a-entity id='toy' position="0 0 -1.5" rotation="-90 90 -90" gltf-model="url(assets/kirby_ginga/scene.gltf)">
-      </a-entity>
-      <a-entity id='toy2' position="-3 0 -1.5" rotation="-90 90 -90" gltf-model="url(assets/kirby_ginga/scene.gltf)">
-      </a-entity>
+      <a-scene>
+        <a-entity id='toy' position="0 0 -1.5" rotation="-90 90 -90" gltf-model="url(assets/kirby_ginga/scene.gltf)">
+        </a-entity>
+        <a-entity id='toy2' position="-4d 0 -1.5" rotation="-90 90 -90" gltf-model="url(assets/kirby_ginga/scene.gltf)">
+        </a-entity>
+      </a-scene>
     </a-marker>
   </a-scene>
 </body>
