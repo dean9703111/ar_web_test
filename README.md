@@ -2,6 +2,9 @@
 
 ### aframe github
 https://github.com/aframevr/aframe
+中文教學
+https://techbrood.com/aframe
+
 
 ### 動畫規則
 https://github.com/donmccurdy/aframe-extras/tree/master/src/loaders
