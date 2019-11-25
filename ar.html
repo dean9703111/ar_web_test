@@ -16,16 +16,14 @@
         console.log('markerFound', markerId);
         // TODO: Add your own code here to react to the marker being found.
         if (markerId === 'kirby_ginga') {
-          var markerEL = document.getElementById("kirby_ginga");
-          var sceneEL = document.createElement("a-scene");
+          var scene_test = document.getElementById("scene_test");
           var entityEl = document.createElement('a-entity');
           entityEl.setAttribute('id', 'toy');
           entityEl.setAttribute('position', "0 0 -1.5");
           entityEl.setAttribute('rotation', "-90 90 -90");
           entityEl.setAttribute('gltf-model', "url(assets/kirby_ginga/scene.gltf)");
           entityEl.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-          sceneEL.appendChild(entityEl);
-          markerEL.appendChild(sceneEL);
+          scene_test.appendChild(entityEl);
           entityEl.addEventListener('animation-finished', function () {
             // entityEl.removeAttribute('animation-mixer');
             entityEl.parentNode.removeChild(entityEl);
@@ -35,7 +33,7 @@
             entityEl2.setAttribute('rotation', "-90 90 -90");
             entityEl2.setAttribute('gltf-model', "url(assets/kirby_ginga/scene.gltf)");
             entityEl2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
-            sceneEL.appendChild(entityEl2);
+            scene_test.appendChild(entityEl2);
           }, { once: true });
         }
       });
@@ -54,60 +52,60 @@
     <a-marker id='1_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_1.patt' registerevents>
       <!-- <a-entity position='0 0 -1' rotation="0 0 0" gltf-model="url(assets/cards/hearts/1_hearts.glb)">
       </a-entity> -->
-      <!-- <a-scene id='1_hearts_scene'>
-      </a-scene> -->
+      <a-scene id='1_hearts_scene'>
+      </a-scene>
     </a-marker>
     <a-marker id='2_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_2.patt' registerevents>
-      <!-- <a-scene id='2_hearts_scene'>
-      </a-scene> -->
+      <a-scene id='2_hearts_scene'>
+      </a-scene>
     </a-marker>
     <a-marker id='3_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_3.patt' registerevents>
-      <!-- <a-scene id='3_hearts_scene'>
-      </a-scene> -->
+      <a-scene id='3_hearts_scene'>
+      </a-scene>
     </a-marker>
     <a-marker id='4_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_4.patt' registerevents>
-      <!-- <a-scene id='4_hearts_scene'>
-      </a-scene> -->
+      <a-scene id='4_hearts_scene'>
+      </a-scene>
     </a-marker>
     <a-marker id='5_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_5.patt' registerevents>
-      <!-- <a-scene id='5_hearts_scene'>
-      </a-scene> -->
+      <a-scene id='5_hearts_scene'>
+      </a-scene>
     </a-marker>
     <a-marker id='6_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_6.patt' registerevents>
-      <!-- <a-scene id='6_hearts_scene'>
-      </a-scene> -->
+      <a-scene id='6_hearts_scene'>
+      </a-scene>
     </a-marker>
     <a-marker id='7_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_7.patt' registerevents>
-      <!-- <a-scene id='7_hearts_scene'>
-      </a-scene> -->
+      <a-scene id='7_hearts_scene'>
+      </a-scene>
     </a-marker>
     <a-marker id='8_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_8.patt' registerevents>
-      <!-- <a-scene id='8_hearts_scene'>
-      </a-scene> -->
+      <a-scene id='8_hearts_scene'>
+      </a-scene>
     </a-marker>
     <a-marker id='9_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_9.patt' registerevents>
-      <!-- <a-scene id='9_hearts_scene'>
-      </a-scene> -->
+      <a-scene id='9_hearts_scene'>
+      </a-scene>
     </a-marker>
     <a-marker id='10_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_10.patt' registerevents>
-      <!-- <a-scene id='10_hearts_scene'>
-      </a-scene> -->
+      <a-scene id='10_hearts_scene'>
+      </a-scene>
     </a-marker>
     <a-marker id='11_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_11.patt' registerevents>
-      <!-- <a-scene id='11_hearts_scene'>
-      </a-scene> -->
+      <a-scene id='11_hearts_scene'>
+      </a-scene>
     </a-marker>
     <a-marker id='12_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_12.patt' registerevents>
-      <!-- <a-scene id='12_hearts_scene'>
-      </a-scene> -->
+      <a-scene id='12_hearts_scene'>
+      </a-scene>
     </a-marker>
     <a-marker id='13_hearts' type='pattern' url='assets/marker/hearts/pattern-BAOBAO_13.patt' registerevents>
-      <!-- <a-scene id='13_hearts_scene'>
-      </a-scene> -->
+      <a-scene id='13_hearts_scene'>
+      </a-scene>
     </a-marker> 
     <a-marker id='kirby_ginga' type='pattern' url='assets/marker/pattern-people.patt' registerevents>
-      <!-- <a-scene id='scene_test'>
-      </a-scene> -->
+      <a-scene id='scene_test'>
+      </a-scene>
     </a-marker>
   </a-scene>
 </body>
