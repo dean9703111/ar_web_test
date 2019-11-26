@@ -45,3 +45,5 @@ http://bhollis.github.io/aruco-marker/demos/angular.html
 3. 如果可能盡量300KB以下
 4. 動畫可考慮拆成兩段，第一段為魔術師動畫，第二段為牌出現
 
+### 優化方向
+1. 載入速度問題，目前2MB以上的載入對手機還是有感覺的
