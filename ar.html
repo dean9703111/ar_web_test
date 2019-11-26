@@ -14,7 +14,7 @@
       marker.addEventListener('markerFound', function () {
         var markerId = marker.id;
         console.log('markerFound', markerId);
-        // alert('markerFound:' + markerId)
+        alert('markerFound:' + markerId)
         // TODO: Add your own code here to react to the marker being found.
         if (markerId !== 'kirby_ginga') {
           var markerEL = document.getElementById(markerId);
@@ -22,7 +22,7 @@
           var url = "url(assets/cards/hearts/" + markerId + ".glb)"
           // entityEl.setAttribute('id', 'toy');
           entityEl.setAttribute('position', "0 0 -1");
-          entityEl.setAttribute('scale', "0.7 1 0.7");
+          entityEl.setAttribute('scale', "0.5 0.5 0.5");
           entityEl.setAttribute('gltf-model', url);
           markerEL.appendChild(entityEl);
         } else {
