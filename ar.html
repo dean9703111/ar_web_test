@@ -27,14 +27,14 @@
           // markerEL.appendChild(entityEl);
 
           // 此使用貼圖方式
-          var markerEL = document.getElementById(markerId);
-          var entityEl = document.createElement('a-entity');
-          var url = "src:url(assets/material/" + markerId + ".png)"
-          entityEl.setAttribute('position', "0 0 -1.5");
-          entityEl.setAttribute('rotation', "-90 0 0");
-          entityEl.setAttribute('geometry', "primitive: plane;width: 1.2; height: 1.7;");
-          entityEl.setAttribute('material', url);
-          markerEL.appendChild(entityEl);
+          // var markerEL = document.getElementById(markerId);
+          // var entityEl = document.createElement('a-entity');
+          // var url = "src:url(assets/material/" + markerId + ".png)"
+          // entityEl.setAttribute('position', "0 0 -1.5");
+          // entityEl.setAttribute('rotation', "-90 0 0");
+          // entityEl.setAttribute('geometry', "primitive: plane;width: 1.2; height: 1.7;");
+          // entityEl.setAttribute('material', url);
+          // markerEL.appendChild(entityEl);
         } else {
           var markerEL = document.getElementById(markerId);
           var entityEl = document.createElement('a-entity');
@@ -76,30 +76,57 @@
 <body style='margin : 0px; overflow: hidden;'>
   <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'>
     <a-marker id='1_hearts' type='pattern' url='assets/marker/hearts/pattern-1.patt' registerevents>
+      <a-entity position="0 0 -1.5" rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;"
+        material="src: url(assets/material/1_hearts.png)">
     </a-marker>
     <a-marker id='2_hearts' type='pattern' url='assets/marker/hearts/pattern-2.patt' registerevents>
+      <a-entity position="0 0 -1.5" rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;"
+        material="src: url(assets/material/2_hearts.png)">
     </a-marker>
     <a-marker id='3_hearts' type='pattern' url='assets/marker/hearts/pattern-3.patt' registerevents>
+      <a-entity position="0 0 -1.5" rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;"
+        material="src: url(assets/material/3_hearts.png)">
     </a-marker>
     <a-marker id='4_hearts' type='pattern' url='assets/marker/hearts/pattern-4.patt' registerevents>
+      <a-entity position="0 0 -1.5" rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;"
+        material="src: url(assets/material/4_hearts.png)">
     </a-marker>
     <a-marker id='5_hearts' type='pattern' url='assets/marker/hearts/pattern-5.patt' registerevents>
+      <a-entity position="0 0 -1.5" rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;"
+        material="src: url(assets/material/5_hearts.png)">
     </a-marker>
     <a-marker id='6_hearts' type='pattern' url='assets/marker/hearts/pattern-6.patt' registerevents>
+      <a-entity position="0 0 -1.5" rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;"
+        material="src: url(assets/material/6_hearts.png)">
     </a-marker>
     <a-marker id='7_hearts' type='pattern' url='assets/marker/hearts/pattern-7.patt' registerevents>
+      <a-entity position="0 0 -1.5" rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;"
+        material="src: url(assets/material/7_hearts.png)">
     </a-marker>
     <a-marker id='8_hearts' type='pattern' url='assets/marker/hearts/pattern-8.patt' registerevents>
+      <a-entity position="0 0 -1.5" rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;"
+        material="src: url(assets/material/8_hearts.png)">
     </a-marker>
     <a-marker id='9_hearts' type='pattern' url='assets/marker/hearts/pattern-9.patt' registerevents>
+      <a-entity position="0 0 -1.5" rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;"
+        material="src: url(assets/material/9_hearts.png)">
     </a-marker>
     <a-marker id='10_hearts' type='pattern' url='assets/marker/hearts/pattern-10.patt' registerevents>
+      <a-entity position="0 0 -1.5" rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;"
+        material="src: url(assets/material/10_hearts.png)">
     </a-marker>
     <a-marker id='11_hearts' type='pattern' url='assets/marker/hearts/pattern-11.patt' registerevents>
+      <a-entity position="0 0 -1.5" rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;"
+        material="src: url(assets/material/11_hearts.png)">
     </a-marker>
     <a-marker id='12_hearts' type='pattern' url='assets/marker/hearts/pattern-12.patt' registerevents>
+      <a-entity position="0 0 -1.5" rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;"
+        material="src: url(assets/material/12_hearts.png)">
     </a-marker>
     <a-marker id='13_hearts' type='pattern' url='assets/marker/hearts/pattern-13.patt' registerevents>
+      <a-entity position="0 0 -1.5" rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;"
+        material="src: url(assets/material/13_hearts.png)">
+      </a-entity>
     </a-marker>
     <a-marker id='kirby_ginga' type='pattern' url='assets/marker/pattern-people.patt' registerevents>
       <!-- <a-entity rotation="-90 0 0" geometry="primitive: plane;width: 1.2; height: 1.7;" material="src: url(assets/poker13.png)">
