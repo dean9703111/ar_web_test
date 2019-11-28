@@ -12,7 +12,6 @@
   var loadEntityEl = document.createElement('a-entity');
   loadEntityEl.setAttribute('position', "0 0 -1.5");
   loadEntityEl.setAttribute('scale', "0.7 0.7 0.7");
-  loadEntityEl.setAttribute('gltf-model', "#loading");
   loadEntityEl.setAttribute('animation-finished');
 
 
@@ -26,6 +25,7 @@
         // TODO: Add your own code here to react to the marker being found.
         if (markerId !== 'kirby_ginga') {
           // 先抓loading model
+          loadEntityEl.setAttribute('gltf-model', "#loading");
           loadEntityEl.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
           markerEL.appendChild(loadEntityEl);
 
