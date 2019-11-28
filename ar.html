@@ -8,12 +8,7 @@
 <script src="js/aframe-extras.min.js"></script>
 <script>
   var polyfill = new WebXRPolyfill();
-  // 在初始化時就先建立一個loader實體
-  var loadEntityEl = document.createElement('a-entity');
-  loadEntityEl.setAttribute('position', "0 0 -1.5");
-  loadEntityEl.setAttribute('scale', "0.7 0.7 0.7");
-  loadEntityEl.setAttribute('animation-finished');
-  loadEntityEl.setAttribute('rotation', "-90 0 0");
+  
 
   AFRAME.registerComponent('registerevents', {
     init: function () {
@@ -24,7 +19,11 @@
         alert('markerFound:' + markerId)
         // TODO: Add your own code here to react to the marker being found.
         if (markerId !== 'kirby_ginga') {
-          // 先抓loading model
+          // 先建立一個loader實體
+          var loadEntityEl = document.createElement('a-entity');
+          loadEntityEl.setAttribute('position', "0 0 -1.5");
+          loadEntityEl.setAttribute('scale', "0.05 0.5 0.05");
+          loadEntityEl.setAttribute('rotation', "-90 0 0");
           loadEntityEl.setAttribute('gltf-model', "#loading");
           loadEntityEl.setAttribute('animation-mixer', { clip: '*' });
           markerEL.appendChild(loadEntityEl);
