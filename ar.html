@@ -8,6 +8,13 @@
 <script src="js/aframe-extras.min.js"></script>
 <script>
   var polyfill = new WebXRPolyfill();
+  // 在初始化時就先建立一個loader實體
+  var loadEntityEl = document.createElement('a-entity');
+  loadEntityEl.setAttribute('position', "0 0 -1.5");
+  loadEntityEl.setAttribute('scale', "0.7 0.7 0.7");
+  loadEntityEl.setAttribute('gltf-model', "#loading");
+  loadEntityEl.setAttribute('animation-finished');
+
 
   AFRAME.registerComponent('registerevents', {
     init: function () {
@@ -18,6 +25,10 @@
         // alert('markerFound:' + markerId)
         // TODO: Add your own code here to react to the marker being found.
         if (markerId !== 'kirby_ginga') {
+          // 先抓loading model
+          loadEntityEl.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
+          markerEL.appendChild(loadEntityEl);
+
           // 此為3D模型
           var markerEL = document.getElementById(markerId);
           var entityEl = document.createElement('a-entity');
@@ -25,15 +36,27 @@
           entityEl.setAttribute('position', "0 0 -1.5");
           entityEl.setAttribute('scale', "0.7 0.7 0.7");
           entityEl.setAttribute('gltf-model', url);
+          entityEl.setAttribute("visible", "false")
           entityEl.setAttribute('loader')
           markerEL.appendChild(entityEl);
-          
+
+          var checkloaded = false;
+
+          loadEntityEl.addEventListener('animation-finished', function () {
+            if (checkloaded) {
+              entityEl.setAttribute("visible", "true")
+              loadEntityEl.setAttribute("visible", "false")
+            }
+          }, { once: true });
+
+
           AFRAME.registerComponent('loader', {
             init: function () {
               // let loader = document.querySelector("#loadingEl")
               this.el.addEventListener('model-loaded', e => {
                 console.log('loaded')
-                alert('loaded');
+                // alert('loaded');
+                checkloaded = true
                 // loader.setAttribute("visible", "false")
               })
             }
