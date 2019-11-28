@@ -8,16 +8,7 @@
 <script src="js/aframe-extras.min.js"></script>
 <script>
   var polyfill = new WebXRPolyfill();
-  AFRAME.registerComponent('loader', {
-    init: function () {
-      // let loader = document.querySelector("#loadingEl")
-      this.el.addEventListener('model-loaded', e => {
-        console.log('loaded')
-        alert('loaded');
-        // loader.setAttribute("visible", "false")
-      })
-    }
-  })
+
   AFRAME.registerComponent('registerevents', {
     init: function () {
       var marker = this.el;
@@ -36,7 +27,17 @@
           entityEl.setAttribute('gltf-model', url);
           entityEl.setAttribute('loader')
           markerEL.appendChild(entityEl);
-
+          
+          AFRAME.registerComponent('loader', {
+            init: function () {
+              // let loader = document.querySelector("#loadingEl")
+              this.el.addEventListener('model-loaded', e => {
+                console.log('loaded')
+                alert('loaded');
+                // loader.setAttribute("visible", "false")
+              })
+            }
+          })
           // 此使用貼圖方式
           // var markerEL = document.getElementById(markerId);
           // var entityEl = document.createElement('a-entity');
