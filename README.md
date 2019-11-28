@@ -47,3 +47,4 @@ http://bhollis.github.io/aruco-marker/demos/angular.html
 
 ### 優化方向
 1. 載入速度問題，目前2MB以上的載入對手機還是有感覺的
+2. 載入問題可用loading畫面解決，基本上會用帥氣特效(閃電，雪花，煙霧...)
