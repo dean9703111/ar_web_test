@@ -88,15 +88,15 @@
           entityEl2.setAttribute('position', "-1 0 -1.5");
           entityEl2.setAttribute('rotation', "-90 90 -90");
           entityEl2.setAttribute('gltf-model', "url(assets/kirby_ginga/scene.gltf)");
-          entityEl2.setAttribute('loader')
           entityEl2.setAttribute("visible", "false")
+          entityEl2.setAttribute('loader')          
           // entityEl2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
           markerEL.appendChild(entityEl2);
 
           entityEl.addEventListener('animation-loop', function () {//每次跑完都會檢查
             // alert('finished')
             if (checkloaded) {
-              alert('loaded & finished');
+              // alert('loaded & finished');
               entityEl.parentNode.removeChild(entityEl);
               entityEl2.setAttribute("visible", "true")
               entityEl2.setAttribute('animation-mixer', { clip: '*' });
@@ -111,7 +111,7 @@
             // let loader = document.querySelector("#loadingEl")
             this.el.addEventListener('model-loaded', e => {
               console.log('loaded')
-              alert('loaded');
+              // alert('loaded');
               checkloaded = true
               // loader.setAttribute("visible", "false")
             })
