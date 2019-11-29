@@ -82,8 +82,9 @@
           entityEl.setAttribute('gltf-model', "#loading");
           entityEl.setAttribute('animation-mixer', { clip: '*' });
           markerEL.appendChild(entityEl);
-          
+
           entityEl.addEventListener('animation-finished', function () {
+            alert('finished')
             // entityEl.removeAttribute('animation-mixer');
             entityEl.parentNode.removeChild(entityEl);
             var entityEl2 = document.createElement('a-entity');
