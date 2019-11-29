@@ -34,7 +34,7 @@
           var entityEl = document.createElement('a-entity');
           var url = "url(assets/cards/hearts/" + markerId + ".glb)"
           entityEl.setAttribute('position', "0 0 -1.5");
-          entityEl.setAttribute('scale', "0.7 0.7 0.7");
+          entityEl.setAttribute('scale', "0.4 0.4 0.4");
           entityEl.setAttribute('gltf-model', url);
           entityEl.setAttribute("visible", "false")
           entityEl.setAttribute('loader')
@@ -42,7 +42,7 @@
 
           var checkloaded = false;
 
-          loadEntityEl.addEventListener('animation-finished', function () {
+          loadEntityEl.addEventListener('animation-loop', function () {
             // alert('finished');
             if (checkloaded) {
               // alert('loaded & finished');
