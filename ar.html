@@ -8,7 +8,7 @@
 <script src="js/aframe-extras.min.js"></script>
 <script>
   var polyfill = new WebXRPolyfill();
-  
+
 
   AFRAME.registerComponent('registerevents', {
     init: function () {
@@ -25,7 +25,7 @@
           loadEntityEl.setAttribute('scale', "0.05 0.5 0.05");
           loadEntityEl.setAttribute('rotation', "-90 0 0");
           // loadEntityEl.setAttribute('gltf-model', "#loading");
-          loadEntityEl.setAttribute('gltf-model', "url(assets/loading/scene.gltf)");          
+          loadEntityEl.setAttribute('gltf-model', "url(assets/loading/scene.gltf)");
           loadEntityEl.setAttribute('animation-mixer', { clip: '*' });
           markerEL.appendChild(loadEntityEl);
 
@@ -113,7 +113,7 @@
 
 <body style='margin : 0px; overflow: hidden;'>
   <a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false;'
-  light="defaultLightsEnabled: false">
+    renderer="colorManagement: true;sortObjects: true;physicallyCorrectLights: true;">
     <a-assets>
       <a-asset-item id="loading" src="assets/loading/scene.gltf"></a-asset-item>
     </a-assets>
