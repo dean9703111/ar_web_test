@@ -76,7 +76,7 @@
           var markerEL = document.getElementById(markerId);
           var entityEl = document.createElement('a-entity');
           entityEl.setAttribute('position', "0 0 -1.5");
-          entityEl.setAttribute('rotation', "-90 90 -90");
+          entityEl.setAttribute('rotation', "-90 0 0");
           entityEl.setAttribute('gltf-model', "url(assets/loading/scene.gltf)");
           entityEl.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
           markerEL.appendChild(entityEl);
