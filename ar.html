@@ -75,13 +75,14 @@
         } else {
           var markerEL = document.getElementById(markerId);
           var entityEl = document.createElement('a-entity');
-          entityEl.setAttribute('position', "0 0 0");
+          entityEl.setAttribute('position', "0 0 -1");
           entityEl.setAttribute('rotation', "0 0 0");
           entityEl.setAttribute('scale', "0.5 0.5 0.5");
           // entityEl.setAttribute('light', "type: spot; color: #F00; intensity: 5");
-          entityEl.setAttribute('gltf-model', "url(assets/loading/scene.gltf)");
-          entityEl.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
+          entityEl.setAttribute('gltf-model', "#loading");
+          entityEl.setAttribute('animation-mixer', { clip: '*' });
           markerEL.appendChild(entityEl);
+          
           entityEl.addEventListener('animation-finished', function () {
             // entityEl.removeAttribute('animation-mixer');
             entityEl.parentNode.removeChild(entityEl);
@@ -89,7 +90,7 @@
             // entityEl2.setAttribute('id', 'toy2');
             entityEl2.setAttribute('position', "-1 0 -1.5");
             entityEl2.setAttribute('rotation', "-90 90 -90");
-            entityEl2.setAttribute('gltf-model', "#loading");
+            entityEl2.setAttribute('gltf-model', "url(assets/kirby_ginga/scene.gltf)");
             entityEl2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
             markerEL.appendChild(entityEl2);
           }, { once: true });
