@@ -20,17 +20,17 @@
         // TODO: Add your own code here to react to the marker being found.
         if (markerId !== 'kirby_ginga') {
           // 先建立一個loader實體
+          var markerEL = document.getElementById(markerId);
           var loadEntityEl = document.createElement('a-entity');
-          loadEntityEl.setAttribute('position', "0 0 -1.5");
-          loadEntityEl.setAttribute('scale', "0.05 0.5 0.05");
-          loadEntityEl.setAttribute('rotation', "-90 0 0");
-          // loadEntityEl.setAttribute('gltf-model', "#loading");
-          loadEntityEl.setAttribute('gltf-model', "url(assets/loading/scene.gltf)");
+          loadEntityEl.setAttribute('position', "0 0 -1.3");
+          loadEntityEl.setAttribute('scale', "0.5 0.5 0.5");
+          loadEntityEl.setAttribute('rotation', "0 0 0");
+          loadEntityEl.setAttribute('gltf-model', "#loading");
+          loadEntityEl.setAttribute('duration', "1.5");          
           loadEntityEl.setAttribute('animation-mixer', { clip: '*' });
           markerEL.appendChild(loadEntityEl);
 
           // 此為3D模型
-          var markerEL = document.getElementById(markerId);
           var entityEl = document.createElement('a-entity');
           var url = "url(assets/cards/hearts/" + markerId + ".glb)"
           entityEl.setAttribute('position', "0 0 -1.5");
@@ -43,11 +43,11 @@
           var checkloaded = false;
 
           loadEntityEl.addEventListener('animation-finished', function () {
-            alert('finished');
+            // alert('finished');
             if (checkloaded) {
-              alert('loaded & finished');
-              entityEl.setAttribute("visible", "true")
-              loadEntityEl.setAttribute("visible", "false")
+              // alert('loaded & finished');
+              loadEntityEl.parentNode.removeChild(loadEntityEl);
+              entityEl.setAttribute("visible", "true")              
             }
           }, { once: true });
 
@@ -57,7 +57,7 @@
               // let loader = document.querySelector("#loadingEl")
               this.el.addEventListener('model-loaded', e => {
                 console.log('loaded')
-                alert('loaded');
+                // alert('loaded');
                 checkloaded = true
                 // loader.setAttribute("visible", "false")
               })
