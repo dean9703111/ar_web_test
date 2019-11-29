@@ -83,7 +83,7 @@
           entityEl.setAttribute('animation-mixer', { clip: '*' });
           markerEL.appendChild(entityEl);
 
-          entityEl.addEventListener('animation-finished', function () {
+          entityEl.addEventListener('animation-loop', function () {//每次跑完都會檢查
             alert('finished')
             // entityEl.removeAttribute('animation-mixer');
             entityEl.parentNode.removeChild(entityEl);
