@@ -23,10 +23,10 @@
           var markerEL = document.getElementById(markerId);
           var loadEntityEl = document.createElement('a-entity');
           loadEntityEl.setAttribute('position', "0 0 -1.3");
-          loadEntityEl.setAttribute('scale', "0.5 0.5 0.5");
+          loadEntityEl.setAttribute('scale', "0.3 0.3 0.3");
           loadEntityEl.setAttribute('rotation', "0 0 0");
           loadEntityEl.setAttribute('gltf-model', "#loading");
-          loadEntityEl.setAttribute('duration', "1.5");          
+          loadEntityEl.setAttribute('duration', "1");
           loadEntityEl.setAttribute('animation-mixer', { clip: '*' });
           markerEL.appendChild(loadEntityEl);
 
@@ -47,7 +47,7 @@
             if (checkloaded) {
               // alert('loaded & finished');
               loadEntityEl.parentNode.removeChild(loadEntityEl);
-              entityEl.setAttribute("visible", "true")              
+              entityEl.setAttribute("visible", "true")
             }
           }, { once: true });
 
@@ -82,6 +82,7 @@
           entityEl.setAttribute('gltf-model', "#loading");
           entityEl.setAttribute('duration', "2");
           entityEl.setAttribute('animation-mixer', { clip: '*' });
+          entityEl.setAttribute('animation__fadeout', "startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;")
           markerEL.appendChild(entityEl);
 
           var entityEl2 = document.createElement('a-entity');
@@ -89,7 +90,7 @@
           entityEl2.setAttribute('rotation', "-90 90 -90");
           entityEl2.setAttribute('gltf-model', "url(assets/kirby_ginga/scene.gltf)");
           entityEl2.setAttribute("visible", "false")
-          entityEl2.setAttribute('loader')          
+          entityEl2.setAttribute('loader')
           // entityEl2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
           markerEL.appendChild(entityEl2);
 
@@ -97,7 +98,8 @@
             // alert('finished')
             if (checkloaded) {
               // alert('loaded & finished');
-              entityEl.parentNode.removeChild(entityEl);
+              // entityEl.parentNode.removeChild(entityEl);
+              entityEl.emit('fadeout')
               entityEl2.setAttribute("visible", "true")
               entityEl2.setAttribute('animation-mixer', { clip: '*' });
             }
