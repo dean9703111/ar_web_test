@@ -97,7 +97,7 @@
           entityEl.addEventListener('animation-loop', function () {//每次跑完都會檢查
             // alert('finished')
             if (checkloaded) {
-              // alert('loaded & finished');
+              alert('fadeout');
               // entityEl.parentNode.removeChild(entityEl);
               entityEl.emit('fadeout')
               entityEl2.setAttribute("visible", "true")
