@@ -84,6 +84,9 @@
           entityEl.setAttribute('animation-mixer', { clip: '*' });
           entityEl.setAttribute('animation__fadeout', "startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;")
           markerEL.appendChild(entityEl);
+          setTimeout(function () {
+            sky.emit('fadeout');
+          }, 2000);
 
           var entityEl2 = document.createElement('a-entity');
           entityEl2.setAttribute('position', "-1 0 -1.5");
