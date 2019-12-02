@@ -15,6 +15,7 @@
       var marker = this.el;
       marker.addEventListener('markerFound', function () {
         var markerId = marker.id;
+        var checkloaded = false;
         console.log('markerFound', markerId);
         // alert('markerFound:' + markerId)
         // TODO: Add your own code here to react to the marker being found.
@@ -40,7 +41,7 @@
           entityEl.setAttribute('loader')
           markerEL.appendChild(entityEl);
 
-          var checkloaded = false;
+
 
           loadEntityEl.addEventListener('animation-loop', function () {
             // alert('finished');
@@ -50,19 +51,6 @@
               entityEl.setAttribute("visible", "true")
             }
           }, { once: true });
-
-
-          AFRAME.registerComponent('loader', {
-            init: function () {
-              // let loader = document.querySelector("#loadingEl")
-              this.el.addEventListener('model-loaded', e => {
-                console.log('loaded')
-                // alert('loaded');
-                checkloaded = true
-                // loader.setAttribute("visible", "false")
-              })
-            }
-          })
           // 此使用貼圖方式
           // var markerEL = document.getElementById(markerId);
           // var entityEl = document.createElement('a-entity');
@@ -74,16 +62,17 @@
           // markerEL.appendChild(entityEl);
         } else {
           var markerEL = document.getElementById(markerId);
-          var entityEl = document.createElement('a-entity');
-          entityEl.setAttribute('position', "0 0 -1");
-          entityEl.setAttribute('rotation', "0 0 0");
-          entityEl.setAttribute('scale', "0.5 0.5 0.5");
-          entityEl.setAttribute('gltf-model', "#loading");
-          entityEl.setAttribute('duration', "2");
-          entityEl.setAttribute('animation-mixer', { clip: '*' });
-          entityEl.setAttribute('set-sky');
-          entityEl.setAttribute('animation__fadeout', "startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;")
-          markerEL.appendChild(entityEl);
+          var initBG = document.createElement('a-entity');
+          initBG.setAttribute('position', "0 0 -1");
+          initBG.setAttribute('rotation', "0 0 0");
+          initBG.setAttribute('scale', "0.5 0.5 0.5");
+          initBG.setAttribute('gltf-model', "#loading");
+          initBG.setAttribute('duration', "2");
+          initBG.setAttribute('animation-mixer', { clip: '*' });
+          initBG.setAttribute('set-sky',"#fade");
+          initBG.setAttribute('id',"fadeout")
+          initBG.setAttribute('animation__fadeout', "startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;")
+          markerEL.appendChild(initBG);
 
 
           var entityEl2 = document.createElement('a-entity');
@@ -102,10 +91,12 @@
               // alert('fadeout');
               // entityEl.parentNode.removeChild(entityEl);
 
-              AFRAME.registerComponent('set-sky', {
+              AFRAME.registerComponent('fadeout', {
                 schema: { default: '' },
                 init: function () {
-                  entityEl.emit('fadeout');
+                  // var initBG = document.getElementById("fadeout");
+                  initBG.setAttribute('animation__fadeout', "startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;")
+                  initBG.emit('fadeout');
                 }
               });
               entityEl2.setAttribute("visible", "true")
@@ -116,6 +107,7 @@
 
           }, { once: true });
         }
+
         AFRAME.registerComponent('loader', {
           init: function () {
             // let loader = document.querySelector("#loadingEl")
