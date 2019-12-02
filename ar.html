@@ -76,7 +76,6 @@
           entityEl2.setAttribute('rotation', "-90 90 -90");
           entityEl2.setAttribute('gltf-model', "url(assets/kirby_ginga/scene.gltf)");
           entityEl2.setAttribute("visible", "false")
-          entityEl2.setAttribute("id", "loadingEl")          
           entityEl2.setAttribute('loader')
           // entityEl2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
           markerEL.appendChild(entityEl2);
@@ -97,7 +96,7 @@
 
           }, { once: true });
         }
-
+        
       });
       marker.addEventListener('markerLost', function () {
         var markerId = marker.id;
@@ -112,16 +111,16 @@
         // TODO: Add your own code here to react to the marker being lost.
       });
       AFRAME.registerComponent('loader', {
-        init: function () {
-          let loader = document.getElementById("loadingEl")
-          loader.addEventListener('model-loaded', e => {
-            console.log('loaded')
-            alert('loaded');
-            checkloaded = true
-            // loader.setAttribute("visible", "false")
-          })
-        }
-      })
+          init: function () {
+            // let loader = document.querySelector("#loadingEl")
+            this.el.addEventListener('model-loaded', e => {
+              console.log('loaded')
+              // alert('loaded');
+              checkloaded = true
+              // loader.setAttribute("visible", "false")
+            })
+          }
+        })
     }
   });
 </script>
