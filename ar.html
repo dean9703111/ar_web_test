@@ -69,8 +69,8 @@
           initBG.setAttribute('gltf-model', "#loading");
           initBG.setAttribute('duration', "2");
           initBG.setAttribute('animation-mixer', { clip: '*' });
-          initBG.setAttribute('set-sky',"#fade");
-          initBG.setAttribute('id',"fadeout")          
+          initBG.setAttribute('set-sky', "#fade");
+          initBG.setAttribute('id', "fadeout")
           markerEL.appendChild(initBG);
 
 
@@ -90,14 +90,7 @@
               // alert('fadeout');
               // entityEl.parentNode.removeChild(entityEl);
 
-              AFRAME.registerComponent('fadeout', {
-                schema: { default: '' },
-                init: function () {
-                  var initBG = document.getElementById("fadeout");
-                  initBG.setAttribute('animation__fadeout', "startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;")
-                  initBG.emit('fadeout');
-                }
-              });
+
               entityEl2.setAttribute("visible", "true")
               entityEl2.setAttribute('animation-mixer', { clip: '*' });
             }
@@ -106,7 +99,14 @@
 
           }, { once: true });
         }
-
+        AFRAME.registerComponent('fadeout', {
+          schema: { default: '' },
+          init: function () {
+            var initBG = document.getElementById("fadeout");
+            initBG.setAttribute('animation__fadeout', "startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;")
+            initBG.emit('fadeout');
+          }
+        });
         AFRAME.registerComponent('loader', {
           init: function () {
             // let loader = document.querySelector("#loadingEl")
