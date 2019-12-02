@@ -84,7 +84,7 @@
           // entityEl2.setAttribute('animation-mixer', { clip: '*', loop: 'once' });
           markerEL.appendChild(entityEl2);
 
-          entityEl.addEventListener('animation-loop', function () {//每次跑完都會檢查
+          initBG.addEventListener('animation-loop', function () {//每次跑完都會檢查
             // alert('finished')
             // entityEl.emit('fadeout');
             if (checkloaded) {
@@ -94,7 +94,7 @@
               AFRAME.registerComponent('fadeout', {
                 schema: { default: '' },
                 init: function () {
-                  // var initBG = document.getElementById("fadeout");
+                  var initBG = document.getElementById("fadeout");
                   initBG.setAttribute('animation__fadeout', "startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;")
                   initBG.emit('fadeout');
                 }
