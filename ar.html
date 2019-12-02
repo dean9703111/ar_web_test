@@ -80,13 +80,10 @@
           entityEl.setAttribute('scale', "0.5 0.5 0.5");
           entityEl.setAttribute('gltf-model', "#loading");
           entityEl.setAttribute('duration', "2");
-          // entityEl.setAttribute('animation-mixer', { clip: '*' });
-          
-          markerEL.appendChild(entityEl);
+          entityEl.setAttribute('animation-mixer', { clip: '*' });
           entityEl.setAttribute('animation__fadeout', "startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;")
-          setTimeout(function () {
-            entityEl.emit('fadeout');
-          }, 2000);
+          markerEL.appendChild(entityEl);
+          
 
           var entityEl2 = document.createElement('a-entity');
           entityEl2.setAttribute('position', "-1 0 -1.5");
@@ -99,6 +96,7 @@
 
           entityEl.addEventListener('animation-loop', function () {//每次跑完都會檢查
             // alert('finished')
+            entityEl.emit('fadeout');
             if (checkloaded) {
               alert('fadeout');
               // entityEl.parentNode.removeChild(entityEl);
