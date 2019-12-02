@@ -99,7 +99,7 @@
         AFRAME.registerComponent('loader', {
           init: function () {
             // let loader = document.querySelector("#loadingEl")
-            this.el.addEventListener('model-loaded', e => {
+            entityEl2.addEventListener('model-loaded', e => {
               console.log('loaded')
               // alert('loaded');
               checkloaded = true
