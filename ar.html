@@ -113,10 +113,10 @@
       });
       AFRAME.registerComponent('loader', {
         init: function () {
-          let loader = document.getElementById("#loadingEl")
+          let loader = document.getElementById("loadingEl")
           loader.addEventListener('model-loaded', e => {
             console.log('loaded')
-            // alert('loaded');
+            alert('loaded');
             checkloaded = true
             // loader.setAttribute("visible", "false")
           })
