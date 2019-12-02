@@ -67,10 +67,7 @@
           initBG.setAttribute('rotation', "0 0 0");
           initBG.setAttribute('scale', "0.5 0.5 0.5");
           initBG.setAttribute('gltf-model', "#loading");
-          initBG.setAttribute('duration', "2");
-          initBG.setAttribute('animation-mixer', { clip: '*' });
-          initBG.setAttribute('fadeout', "#fade");
-          initBG.setAttribute('id', "fadeoutEL")
+          initBG.setAttribute('animation-mixer', { clip: '*', crossFadeDuration: 4 });
           markerEL.appendChild(initBG);
 
 
@@ -88,7 +85,7 @@
             // entityEl.emit('fadeout');
             if (checkloaded) {
               // alert('fadeout');
-              // entityEl.parentNode.removeChild(entityEl);
+              entityEl.parentNode.removeChild(entityEl);
 
 
               entityEl2.setAttribute("visible", "true")
@@ -99,14 +96,6 @@
 
           }, { once: true });
         }
-        AFRAME.registerComponent('fadeout', {
-          schema: { default: '' },
-          init: function () {
-            var initBG = document.getElementById("fadeoutEL");
-            initBG.setAttribute('animation__fadeout', "startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;")
-            initBG.emit('fadeout');
-          }
-        });
         AFRAME.registerComponent('loader', {
           init: function () {
             // let loader = document.querySelector("#loadingEl")

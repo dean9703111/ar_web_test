@@ -1,0 +1,47 @@
+<!-- A-Frame Animation Component -->
+<script src="//unpkg.com/aframe-animation-component@4.1.2/dist/aframe-animation-component.min.js"></script>
+
+<script>
+
+    AFRAME.registerComponent('registerevents', {
+        init: function () {
+            var scence = document.getElementById("test123");
+            var sky = document.createElement('a-entity');
+            sky.setAttribute('gltf-model', "#deer");
+            // sky.setAttribute('material', 'color', 'red')
+            //       sky.setAttribute('geometry', {primitive: 'box'})
+
+            sky.setAttribute('set-sky', "#asd")
+            sky.setAttribute('id', "test3333")
+
+            scence.appendChild(sky);
+
+        }
+    })
+
+
+
+
+
+    AFRAME.registerComponent('set-sky', {
+        schema: { default: '' },
+        init: function () {
+            var sky = document.getElementById("test3333");
+            sky.setAttribute('animation__fadeout', "startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;")
+            sky.emit('fadeout');
+        }
+    });
+</script>
+
+<a-scene id="test123" registerevents>
+    <a-assets>
+        <a-asset-item id="deer"
+            src="https://cdn.glitch.com/9f0ee472-bcb4-4dbf-ae0f-da422731a55c%2Fscene.gltf?v=1562656342372">
+        </a-asset-item>
+    </a-assets>
+    <a-camera position="0 2 4">
+        <a-cursor color="#4CC3D9" fuse="true" timeout="10"></a-cursor>
+    </a-camera>
+    <!--   <a-entity id="test3333"
+            geometry="primitive: box" material="color: red"></a-entity> -->
+</a-scene>
