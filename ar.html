@@ -78,12 +78,12 @@
           entityEl.setAttribute('position', "0 0 -1");
           entityEl.setAttribute('rotation', "0 0 0");
           entityEl.setAttribute('scale', "0.5 0.5 0.5");
-          // entityEl.setAttribute('light', "type: spot; color: #F00; intensity: 5");
           entityEl.setAttribute('gltf-model', "#loading");
           entityEl.setAttribute('duration', "2");
           // entityEl.setAttribute('animation-mixer', { clip: '*' });
-          entityEl.setAttribute('animation__fadeout', "startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;")
+          
           markerEL.appendChild(entityEl);
+          entityEl.setAttribute('animation__fadeout', "startEvents: fadeout; property: material.opacity; from: 1; to: 0; dur: 1000;")
           setTimeout(function () {
             entityEl.emit('fadeout');
           }, 2000);
